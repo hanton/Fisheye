@@ -31,9 +31,8 @@
 #pragma mark - Button Action
 
 - (IBAction)playDemo:(UIButton *)sender {
-    //[self launchVideoWithName:@"times-square"];
+    [self launchVideoWithName:@"demo"];
     //[self launchVideoWithName:@"sample2K"];
-    [self launchVideoWithName:@"sample4K"];
 }
 
 - (IBAction)playOnlineURL:(UIButton *)sender {

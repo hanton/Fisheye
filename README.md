@@ -20,11 +20,11 @@
 
 ## Features
 
-* ### Play Online 360° Video
+* Play Online 360° Video
 
 ![screenshot](./Screenshot/PlayOnlineVideo.gif)
 
-* ### Play Local 360° Video
+* Play Local 360° Video
 
 ![screenshot](./Screenshot/PlayLocalVideo.gif)
 

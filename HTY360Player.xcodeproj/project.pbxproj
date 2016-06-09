@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40242ECD1CF1D56B00C02610 /* times-square.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40242ECC1CF1D56B00C02610 /* times-square.mp4 */; };
 		402443C41CFAB79A0061DEB9 /* sample2K.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 402443C31CFAB79A0061DEB9 /* sample2K.mp4 */; };
 		405108A01BEF7E3C003BCFF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4051089F1BEF7E3C003BCFF7 /* main.m */; };
 		405108A31BEF7E3C003BCFF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 405108A21BEF7E3C003BCFF7 /* AppDelegate.m */; };
@@ -22,10 +21,10 @@
 		405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CB1BEF8B18003BCFF7 /* Shader.vsh */; };
 		405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CD1BEF8B4B003BCFF7 /* Shader.fsh */; };
 		405108D11BEF8C6D003BCFF7 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 405108D01BEF8BBB003BCFF7 /* demo.mp4 */; };
+		409E149A1D09343A006307DF /* demo1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 409E14991D09343A006307DF /* demo1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		40242ECC1CF1D56B00C02610 /* times-square.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "times-square.mp4"; sourceTree = "<group>"; };
 		402443C31CFAB79A0061DEB9 /* sample2K.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample2K.mp4; sourceTree = "<group>"; };
 		4051089B1BEF7E3C003BCFF7 /* HTY360Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTY360Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4051089F1BEF7E3C003BCFF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		405108CB1BEF8B18003BCFF7 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		405108CD1BEF8B4B003BCFF7 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		405108D01BEF8BBB003BCFF7 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
+		409E14991D09343A006307DF /* demo1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +95,9 @@
 		4051089E1BEF7E3C003BCFF7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				409E14991D09343A006307DF /* demo1.mp4 */,
 				402443C31CFAB79A0061DEB9 /* sample2K.mp4 */,
 				4051089F1BEF7E3C003BCFF7 /* main.m */,
-				40242ECC1CF1D56B00C02610 /* times-square.mp4 */,
 				405108D01BEF8BBB003BCFF7 /* demo.mp4 */,
 			);
 			name = "Supporting Files";
@@ -209,8 +209,8 @@
 				405108AB1BEF7E3C003BCFF7 /* Assets.xcassets in Resources */,
 				405108D11BEF8C6D003BCFF7 /* demo.mp4 in Resources */,
 				405108BC1BEF7F32003BCFF7 /* HTY360PlayerVC.xib in Resources */,
+				409E149A1D09343A006307DF /* demo1.mp4 in Resources */,
 				405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */,
-				40242ECD1CF1D56B00C02610 /* times-square.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
