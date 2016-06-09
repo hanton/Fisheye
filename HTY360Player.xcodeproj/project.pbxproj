@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40242ECD1CF1D56B00C02610 /* times-square.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40242ECC1CF1D56B00C02610 /* times-square.mp4 */; };
+		402443C41CFAB79A0061DEB9 /* sample2K.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 402443C31CFAB79A0061DEB9 /* sample2K.mp4 */; };
+		405108A01BEF7E3C003BCFF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4051089F1BEF7E3C003BCFF7 /* main.m */; };
+		405108A31BEF7E3C003BCFF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 405108A21BEF7E3C003BCFF7 /* AppDelegate.m */; };
+		405108AB1BEF7E3C003BCFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405108AA1BEF7E3C003BCFF7 /* Assets.xcassets */; };
+		405108AE1BEF7E3C003BCFF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405108AC1BEF7E3C003BCFF7 /* LaunchScreen.storyboard */; };
+		405108B71BEF7EDB003BCFF7 /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 405108B61BEF7EDB003BCFF7 /* GLProgram.m */; };
+		405108BB1BEF7F32003BCFF7 /* HTY360PlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 405108B91BEF7F32003BCFF7 /* HTY360PlayerVC.m */; };
+		405108BC1BEF7F32003BCFF7 /* HTY360PlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405108BA1BEF7F32003BCFF7 /* HTY360PlayerVC.xib */; };
+		405108BF1BEF8193003BCFF7 /* HTYGLKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 405108BE1BEF8193003BCFF7 /* HTYGLKVC.m */; };
+		405108C91BEF85B3003BCFF7 /* HTYMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 405108C71BEF85B3003BCFF7 /* HTYMenuVC.m */; };
+		405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */; };
+		405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CB1BEF8B18003BCFF7 /* Shader.vsh */; };
+		405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CD1BEF8B4B003BCFF7 /* Shader.fsh */; };
+		405108D11BEF8C6D003BCFF7 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 405108D01BEF8BBB003BCFF7 /* demo.mp4 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		40242ECC1CF1D56B00C02610 /* times-square.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "times-square.mp4"; sourceTree = "<group>"; };
+		402443C31CFAB79A0061DEB9 /* sample2K.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample2K.mp4; sourceTree = "<group>"; };
+		4051089B1BEF7E3C003BCFF7 /* HTY360Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTY360Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4051089F1BEF7E3C003BCFF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		405108A11BEF7E3C003BCFF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		405108A21BEF7E3C003BCFF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		405108AA1BEF7E3C003BCFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		405108AD1BEF7E3C003BCFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		405108AF1BEF7E3C003BCFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		405108B51BEF7EDB003BCFF7 /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
+		405108B61BEF7EDB003BCFF7 /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
+		405108B81BEF7F32003BCFF7 /* HTY360PlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTY360PlayerVC.h; sourceTree = "<group>"; };
+		405108B91BEF7F32003BCFF7 /* HTY360PlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTY360PlayerVC.m; sourceTree = "<group>"; };
+		405108BA1BEF7F32003BCFF7 /* HTY360PlayerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTY360PlayerVC.xib; sourceTree = "<group>"; };
+		405108BD1BEF8193003BCFF7 /* HTYGLKVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTYGLKVC.h; sourceTree = "<group>"; };
+		405108BE1BEF8193003BCFF7 /* HTYGLKVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTYGLKVC.m; sourceTree = "<group>"; };
+		405108C61BEF85B3003BCFF7 /* HTYMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTYMenuVC.h; sourceTree = "<group>"; };
+		405108C71BEF85B3003BCFF7 /* HTYMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTYMenuVC.m; sourceTree = "<group>"; wrapsLines = 1; };
+		405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTYMenuVC.xib; sourceTree = "<group>"; };
+		405108CB1BEF8B18003BCFF7 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		405108CD1BEF8B4B003BCFF7 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		405108D01BEF8BBB003BCFF7 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		405108981BEF7E3C003BCFF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		405108921BEF7E3C003BCFF7 = {
+			isa = PBXGroup;
+			children = (
+				4051089D1BEF7E3C003BCFF7 /* HTY360Player */,
+				4051089C1BEF7E3C003BCFF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4051089C1BEF7E3C003BCFF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4051089B1BEF7E3C003BCFF7 /* HTY360Player.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4051089D1BEF7E3C003BCFF7 /* HTY360Player */ = {
+			isa = PBXGroup;
+			children = (
+				405108A11BEF7E3C003BCFF7 /* AppDelegate.h */,
+				405108A21BEF7E3C003BCFF7 /* AppDelegate.m */,
+				405108CF1BEF8B76003BCFF7 /* Shader */,
+				405108C11BEF8459003BCFF7 /* 360Player */,
+				405108C51BEF857C003BCFF7 /* Menu */,
+				405108AA1BEF7E3C003BCFF7 /* Assets.xcassets */,
+				405108AC1BEF7E3C003BCFF7 /* LaunchScreen.storyboard */,
+				405108AF1BEF7E3C003BCFF7 /* Info.plist */,
+				4051089E1BEF7E3C003BCFF7 /* Supporting Files */,
+			);
+			path = HTY360Player;
+			sourceTree = "<group>";
+		};
+		4051089E1BEF7E3C003BCFF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				402443C31CFAB79A0061DEB9 /* sample2K.mp4 */,
+				4051089F1BEF7E3C003BCFF7 /* main.m */,
+				40242ECC1CF1D56B00C02610 /* times-square.mp4 */,
+				405108D01BEF8BBB003BCFF7 /* demo.mp4 */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		405108C01BEF844A003BCFF7 /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				405108B51BEF7EDB003BCFF7 /* GLProgram.h */,
+				405108B61BEF7EDB003BCFF7 /* GLProgram.m */,
+				405108BD1BEF8193003BCFF7 /* HTYGLKVC.h */,
+				405108BE1BEF8193003BCFF7 /* HTYGLKVC.m */,
+			);
+			name = OpenGL;
+			sourceTree = "<group>";
+		};
+		405108C11BEF8459003BCFF7 /* 360Player */ = {
+			isa = PBXGroup;
+			children = (
+				405108C01BEF844A003BCFF7 /* OpenGL */,
+				405108B81BEF7F32003BCFF7 /* HTY360PlayerVC.h */,
+				405108B91BEF7F32003BCFF7 /* HTY360PlayerVC.m */,
+				405108BA1BEF7F32003BCFF7 /* HTY360PlayerVC.xib */,
+			);
+			name = 360Player;
+			sourceTree = "<group>";
+		};
+		405108C51BEF857C003BCFF7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				405108C61BEF85B3003BCFF7 /* HTYMenuVC.h */,
+				405108C71BEF85B3003BCFF7 /* HTYMenuVC.m */,
+				405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		405108CF1BEF8B76003BCFF7 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				405108CB1BEF8B18003BCFF7 /* Shader.vsh */,
+				405108CD1BEF8B4B003BCFF7 /* Shader.fsh */,
+			);
+			name = Shader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4051089A1BEF7E3C003BCFF7 /* HTY360Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 405108B21BEF7E3C003BCFF7 /* Build configuration list for PBXNativeTarget "HTY360Player" */;
+			buildPhases = (
+				405108971BEF7E3C003BCFF7 /* Sources */,
+				405108981BEF7E3C003BCFF7 /* Frameworks */,
+				405108991BEF7E3C003BCFF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTY360Player;
+			productName = HTY360Player;
+			productReference = 4051089B1BEF7E3C003BCFF7 /* HTY360Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		405108931BEF7E3C003BCFF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Hanton;
+				TargetAttributes = {
+					4051089A1BEF7E3C003BCFF7 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = R8WZ7ZG3LA;
+					};
+				};
+			};
+			buildConfigurationList = 405108961BEF7E3C003BCFF7 /* Build configuration list for PBXProject "HTY360Player" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 405108921BEF7E3C003BCFF7;
+			productRefGroup = 4051089C1BEF7E3C003BCFF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4051089A1BEF7E3C003BCFF7 /* HTY360Player */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		405108991BEF7E3C003BCFF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */,
+				402443C41CFAB79A0061DEB9 /* sample2K.mp4 in Resources */,
+				405108AE1BEF7E3C003BCFF7 /* LaunchScreen.storyboard in Resources */,
+				405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */,
+				405108AB1BEF7E3C003BCFF7 /* Assets.xcassets in Resources */,
+				405108D11BEF8C6D003BCFF7 /* demo.mp4 in Resources */,
+				405108BC1BEF7F32003BCFF7 /* HTY360PlayerVC.xib in Resources */,
+				405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */,
+				40242ECD1CF1D56B00C02610 /* times-square.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		405108971BEF7E3C003BCFF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405108C91BEF85B3003BCFF7 /* HTYMenuVC.m in Sources */,
+				405108B71BEF7EDB003BCFF7 /* GLProgram.m in Sources */,
+				405108A31BEF7E3C003BCFF7 /* AppDelegate.m in Sources */,
+				405108A01BEF7E3C003BCFF7 /* main.m in Sources */,
+				405108BB1BEF7F32003BCFF7 /* HTY360PlayerVC.m in Sources */,
+				405108BF1BEF8193003BCFF7 /* HTYGLKVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		405108AC1BEF7E3C003BCFF7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				405108AD1BEF7E3C003BCFF7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		405108B01BEF7E3C003BCFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		405108B11BEF7E3C003BCFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		405108B31BEF7E3C003BCFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = HTY360Player/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.360player;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		405108B41BEF7E3C003BCFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = HTY360Player/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.360player;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d9cbbedc-12b4-419b-8e95-ede70b061a48";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		405108961BEF7E3C003BCFF7 /* Build configuration list for PBXProject "HTY360Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405108B01BEF7E3C003BCFF7 /* Debug */,
+				405108B11BEF7E3C003BCFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		405108B21BEF7E3C003BCFF7 /* Build configuration list for PBXNativeTarget "HTY360Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405108B31BEF7E3C003BCFF7 /* Debug */,
+				405108B41BEF7E3C003BCFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 405108931BEF7E3C003BCFF7 /* Project object */;
+}

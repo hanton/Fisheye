@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HTY360PlayerVC">
+            <connections>
+                <outlet property="backButton" destination="XuQ-LV-4yQ" id="SFn-6d-4o2"/>
+                <outlet property="gyroButton" destination="DR2-sX-Ecz" id="2WI-6m-yy8"/>
+                <outlet property="playButton" destination="3Pr-21-8dz" id="Nom-Nr-PNu"/>
+                <outlet property="playerControlBackgroundView" destination="utK-WR-lKf" id="mZV-sx-MoY"/>
+                <outlet property="progressSlider" destination="UtA-4n-mGO" id="93H-Vc-Wi3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utK-WR-lKf" userLabel="Play Control Background View">
+                    <rect key="frame" x="30" y="470" width="540" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-21-8dz" userLabel="Play Button">
+                            <rect key="frame" x="248" y="8" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Daa-lB-rAT"/>
+                                <constraint firstAttribute="width" constant="44" id="KLU-Pd-WBq"/>
+                            </constraints>
+                            <state key="normal" image="playback_play"/>
+                            <connections>
+                                <action selector="playButtonTouched:" destination="-1" eventType="touchUpInside" id="HzQ-fF-pHT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-LV-4yQ" userLabel="Back Button">
+                            <rect key="frame" x="8" y="8" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Pun-TT-aTX"/>
+                                <constraint firstAttribute="width" constant="44" id="ml2-kb-T4Z"/>
+                            </constraints>
+                            <state key="normal" image="back"/>
+                            <connections>
+                                <action selector="backButtonTouched:" destination="-1" eventType="touchUpInside" id="8Jr-Z3-ZJA"/>
+                            </connections>
+                        </button>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UtA-4n-mGO">
+                            <rect key="frame" x="6" y="62" width="528" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="cX1-h4-zaD"/>
+                            </constraints>
+                            <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="beginScrubbing:" destination="-1" eventType="touchDown" id="a0H-6e-phP"/>
+                                <action selector="endScrubbing:" destination="-1" eventType="touchUpInside" id="jxg-tt-9pt"/>
+                                <action selector="endScrubbing:" destination="-1" eventType="touchUpOutside" id="pST-la-qL1"/>
+                                <action selector="scrub:" destination="-1" eventType="valueChanged" id="LgI-27-uTS"/>
+                            </connections>
+                        </slider>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-sX-Ecz" userLabel="Gyro Button">
+                            <rect key="frame" x="445" y="8" width="87" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="87" id="eSe-3z-9io"/>
+                                <constraint firstAttribute="height" constant="44" id="woa-gr-Ze6"/>
+                            </constraints>
+                            <state key="normal" image="move"/>
+                            <connections>
+                                <action selector="gyroButtonTouched:" destination="-1" eventType="touchUpInside" id="vH0-KG-9yS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3Pr-21-8dz" firstAttribute="centerX" secondItem="utK-WR-lKf" secondAttribute="centerX" id="831-O0-f35"/>
+                        <constraint firstItem="XuQ-LV-4yQ" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="8bF-6B-2vv"/>
+                        <constraint firstAttribute="bottom" secondItem="UtA-4n-mGO" secondAttribute="bottom" constant="8" id="Bvi-0g-Mhb"/>
+                        <constraint firstAttribute="height" constant="100" id="UAs-oO-mVR"/>
+                        <constraint firstItem="UtA-4n-mGO" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="ViZ-mR-inX"/>
+                        <constraint firstItem="3Pr-21-8dz" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="dzN-aN-3V6"/>
+                        <constraint firstAttribute="trailing" secondItem="UtA-4n-mGO" secondAttribute="trailing" constant="8" id="fTD-SF-QXO"/>
+                        <constraint firstAttribute="trailing" secondItem="DR2-sX-Ecz" secondAttribute="trailing" constant="8" id="iUo-sZ-4lt"/>
+                        <constraint firstItem="DR2-sX-Ecz" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="mF9-di-1US"/>
+                        <constraint firstItem="XuQ-LV-4yQ" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="zrL-Fb-azK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="utK-WR-lKf" secondAttribute="bottom" constant="30" id="M8X-Dv-5Mh"/>
+                <constraint firstItem="utK-WR-lKf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="570" id="Pg6-b2-Vlb"/>
+                <constraint firstItem="utK-WR-lKf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="agq-Yy-Nsi"/>
+                <constraint firstAttribute="trailing" secondItem="utK-WR-lKf" secondAttribute="trailing" constant="30" id="jNk-tJ-Xc4"/>
+                <constraint firstItem="utK-WR-lKf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mr7-p9-MlX"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Pg6-b2-Vlb"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="44" height="44"/>
+        <image name="move" width="87" height="44"/>
+        <image name="playback_play" width="32" height="32"/>
+    </resources>
+</document>
