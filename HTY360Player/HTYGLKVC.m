@@ -94,14 +94,6 @@ GLint uniforms[NUM_UNIFORMS];
     [self startDeviceMotion];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    //self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refreshTexture)];
-    //self.displayLink.frameInterval = 2;
-    //[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-}
-
 - (void)refreshTexture {
     CVReturn err;
     CVPixelBufferRef pixelBuffer = [self.videoPlayerController retrievePixelBufferToDraw];
@@ -113,8 +105,6 @@ GLint uniforms[NUM_UNIFORMS];
             NSLog(@"No video texture cache");
             return;
         }
-        
-        [self setupBuffers];
         
         [self cleanUpTextures];
         
@@ -170,13 +160,6 @@ GLint uniforms[NUM_UNIFORMS];
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-    //[self.displayLink invalidate];
-    //self.displayLink = nil;
-}
-
 - (void)dealloc {
     [self stopDeviceMotion];
     [self tearDownVideoCache];
@@ -200,7 +183,8 @@ GLint uniforms[NUM_UNIFORMS];
 - (void)tearDownVideoCache {
     [self cleanUpTextures];
     
-    CFRelease(self.videoTextureCache);
+    CFRelease(_videoTextureCache);
+    self.videoTextureCache = nil;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
@@ -222,12 +206,12 @@ GLint uniforms[NUM_UNIFORMS];
 
 - (void)cleanUpTextures {
     if (self.lumaTexture) {
-        CFRelease(self.lumaTexture);
+        CFRelease(_lumaTexture);
         self.lumaTexture = NULL;
     }
     
     if (self.chromaTexture) {
-        CFRelease(self.chromaTexture);
+        CFRelease(_chromaTexture);
         self.chromaTexture = NULL;
     }
     
@@ -302,6 +286,7 @@ int esGenSphere(int numSlices, float radius, float **vertices,
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
     [self buildProgram];
+    [self setupBuffers];
     [self setupVideoCache];
     [self.program use];
     glUniform1i(uniforms[UNIFORM_Y], 0);
@@ -427,11 +412,12 @@ int esGenSphere(int numSlices, float radius, float **vertices,
         modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, self.fingerRotationY);
     }
     
-    //self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
     
-    GLKMatrix4 mViewMatrix = GLKMatrix4MakeLookAt(-2.0, 0.0, 0.0, -2.0, 0.0, -1.0, 0.0, 1.0, 0.0);
-    GLKMatrix4 matrix = GLKMatrix4Multiply(mViewMatrix, modelViewMatrix);
-    self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, matrix);
+    //GLKMatrix4 mViewMatrix = GLKMatrix4MakeLookAt(-2.0, 0.0, 0.0, -2.0, 0.0, -1.0, 0.0, 1.0, 0.0);
+    //GLKMatrix4 matrix = GLKMatrix4Multiply(mViewMatrix, modelViewMatrix);
+    //self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, matrix);
+    
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, GL_FALSE, self.modelViewProjectionMatrix.m);
 }
 

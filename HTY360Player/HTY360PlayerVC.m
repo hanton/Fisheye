@@ -146,7 +146,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     
     
     if(![[NSFileManager defaultManager] fileExistsAtPath:[[asset URL] path]]) {
-        NSLog(@"file does not exist");
+        //NSLog(@"file does not exist");
     }
     
     NSArray *requestedKeys = [NSArray arrayWithObjects:kTracksKey, kPlayableKey, nil];

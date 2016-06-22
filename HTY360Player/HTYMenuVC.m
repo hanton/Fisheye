@@ -32,7 +32,6 @@
 
 - (IBAction)playDemo:(UIButton *)sender {
     [self launchVideoWithName:@"demo"];
-    //[self launchVideoWithName:@"sample2K"];
 }
 
 - (IBAction)playOnlineURL:(UIButton *)sender {
@@ -68,7 +67,7 @@
 #pragma mark - Private Method
 
 - (void)launchVideoWithName:(NSString*)name {
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"m4v"];
     NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
     HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC"
                                                                        bundle:nil
