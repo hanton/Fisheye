@@ -9,7 +9,7 @@
 #import "HTY360PlayerVC.h"
 #import "HTYGLKVC.h"
 
-#define ONE_FRAME_DURATION 0.0167
+#define ONE_FRAME_DURATION 0.033
 #define HIDE_CONTROL_DELAY 3.0
 #define DEFAULT_VIEW_ALPHA 0.6
 

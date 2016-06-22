@@ -16,7 +16,7 @@
 #define DEFAULT_OVERTURE 85.0
 #define ES_PI  (3.14159265f)
 #define ROLL_CORRECTION ES_PI/2.0
-#define FramesPerSecond 60
+#define FramesPerSecond 30
 #define SphereSliceNum 200
 #define SphereRadius 1.0
 #define SphereScale 300
@@ -97,11 +97,12 @@ GLint uniforms[NUM_UNIFORMS];
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
-    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    //self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refreshTexture)];
+    //self.displayLink.frameInterval = 2;
+    //[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
-- (void)render {
+- (void)refreshTexture {
     CVReturn err;
     CVPixelBufferRef pixelBuffer = [self.videoPlayerController retrievePixelBufferToDraw];
     if (pixelBuffer != nil) {
@@ -172,8 +173,8 @@ GLint uniforms[NUM_UNIFORMS];
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    [self.displayLink invalidate];
-    self.displayLink = nil;
+    //[self.displayLink invalidate];
+    //self.displayLink = nil;
 }
 
 - (void)dealloc {
@@ -181,7 +182,7 @@ GLint uniforms[NUM_UNIFORMS];
     [self tearDownVideoCache];
     [self tearDownGL];
     
-    if ([EAGLContext currentContext] == self.context) {
+    if ([EAGLContext currentContext] == _context) {
         [EAGLContext setCurrentContext:nil];
     }
 }
@@ -235,35 +236,34 @@ GLint uniforms[NUM_UNIFORMS];
 }
 
 #pragma mark - Generate Sphere
-
+//https://github.com/danginsburg/opengles-book-samples/blob/604a02cc84f9cc4369f7efe93d2a1d7f2cab2ba7/iPhone/Common/esUtil.h#L110
 int esGenSphere(int numSlices, float radius, float **vertices,
                 float **texCoords, uint16_t **indices, int *numVertices_out) {
-    int i;
-    int j;
     int numParallels = numSlices / 2;
     int numVertices = (numParallels + 1) * (numSlices + 1);
     int numIndices = numParallels * numSlices * 6;
     float angleStep = (2.0f * ES_PI) / ((float) numSlices);
     
-    if (vertices != NULL)
+    if (vertices != NULL) {
         *vertices = malloc(sizeof(float) * 3 * numVertices);
+    }
     
-    if (texCoords != NULL)
+    if (texCoords != NULL) {
         *texCoords = malloc(sizeof(float) * 2 * numVertices);
+    }
     
-    if (indices != NULL)
+    if (indices != NULL) {
         *indices = malloc(sizeof(uint16_t) * numIndices);
+    }
     
     for (int i = 0; i < numParallels + 1; i++) {
         for (int j = 0; j < numSlices + 1; j++) {
             int vertex = (i * (numSlices + 1) + j) * 3;
             
             if (vertices) {
-                (*vertices)[vertex + 0] = radius * sinf(angleStep * (float)i) *
-                sinf(angleStep * (float)j);
+                (*vertices)[vertex + 0] = radius * sinf(angleStep * (float)i) * sinf(angleStep * (float)j);
                 (*vertices)[vertex + 1] = radius * cosf(angleStep * (float)i);
-                (*vertices)[vertex + 2] = radius * sinf(angleStep * (float)i) *
-                cosf(angleStep * (float)j);
+                (*vertices)[vertex + 2] = radius * sinf(angleStep * (float)i) * cosf(angleStep * (float)j);
             }
             
             if (texCoords) {
@@ -277,8 +277,8 @@ int esGenSphere(int numSlices, float radius, float **vertices,
     // Generate the indices
     if (indices != NULL) {
         uint16_t *indexBuf = (*indices);
-        for (i = 0; i < numParallels ; i++) {
-            for (j = 0; j < numSlices; j++) {
+        for (int i = 0; i < numParallels ; i++) {
+            for (int j = 0; j < numSlices; j++) {
                 *indexBuf++ = i * (numSlices + 1) + j;
                 *indexBuf++ = (i + 1) * (numSlices + 1) + j;
                 *indexBuf++ = (i + 1) * (numSlices + 1) + (j + 1);
@@ -427,13 +427,19 @@ int esGenSphere(int numSlices, float radius, float **vertices,
         modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, self.fingerRotationY);
     }
     
-    self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    //self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+    
+    GLKMatrix4 mViewMatrix = GLKMatrix4MakeLookAt(-2.0, 0.0, 0.0, -2.0, 0.0, -1.0, 0.0, 1.0, 0.0);
+    GLKMatrix4 matrix = GLKMatrix4Multiply(mViewMatrix, modelViewMatrix);
+    self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, matrix);
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, GL_FALSE, self.modelViewProjectionMatrix.m);
 }
 
 #pragma mark - GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+    [self refreshTexture];
+    
     glClear(GL_COLOR_BUFFER_BIT);
     glDrawElements(GL_TRIANGLES, self.numIndices, GL_UNSIGNED_SHORT, 0);
 }
