@@ -20,6 +20,8 @@
 		405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */; };
 		405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CB1BEF8B18003BCFF7 /* Shader.vsh */; };
 		405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CD1BEF8B4B003BCFF7 /* Shader.fsh */; };
+		90368A4020CE2E4500694CDD /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 90368A3F20CE2E4500694CDD /* target.png */; };
+		90368A4420CE30C700694CDD /* HTY360Target.m in Sources */ = {isa = PBXBuildFile; fileRef = 90368A4320CE30C700694CDD /* HTY360Target.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,9 @@
 		405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTYMenuVC.xib; sourceTree = "<group>"; };
 		405108CB1BEF8B18003BCFF7 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		405108CD1BEF8B4B003BCFF7 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		90368A3F20CE2E4500694CDD /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		90368A4220CE30C700694CDD /* HTY360Target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTY360Target.h; sourceTree = "<group>"; };
+		90368A4320CE30C700694CDD /* HTY360Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTY360Target.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,7 @@
 		405108C11BEF8459003BCFF7 /* 360Player */ = {
 			isa = PBXGroup;
 			children = (
+				90368A3E20CE2E3900694CDD /* target */,
 				405108C01BEF844A003BCFF7 /* OpenGL */,
 				405108B81BEF7F32003BCFF7 /* HTY360PlayerVC.h */,
 				405108B91BEF7F32003BCFF7 /* HTY360PlayerVC.m */,
@@ -136,6 +142,32 @@
 				405108CD1BEF8B4B003BCFF7 /* Shader.fsh */,
 			);
 			name = Shader;
+			sourceTree = "<group>";
+		};
+		90368A3E20CE2E3900694CDD /* target */ = {
+			isa = PBXGroup;
+			children = (
+				90368A4520CE30CB00694CDD /* Images */,
+				90368A4120CE30C700694CDD /* Models */,
+			);
+			path = target;
+			sourceTree = "<group>";
+		};
+		90368A4120CE30C700694CDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90368A4220CE30C700694CDD /* HTY360Target.h */,
+				90368A4320CE30C700694CDD /* HTY360Target.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		90368A4520CE30CB00694CDD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				90368A3F20CE2E4500694CDD /* target.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +232,7 @@
 				405108AE1BEF7E3C003BCFF7 /* LaunchScreen.storyboard in Resources */,
 				403AA41D1D1B592400654C03 /* demo.m4v in Resources */,
 				405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */,
+				90368A4020CE2E4500694CDD /* target.png in Resources */,
 				405108AB1BEF7E3C003BCFF7 /* Assets.xcassets in Resources */,
 				405108BC1BEF7F32003BCFF7 /* HTY360PlayerVC.xib in Resources */,
 				405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */,
@@ -219,6 +252,7 @@
 				405108A01BEF7E3C003BCFF7 /* main.m in Sources */,
 				405108BB1BEF7F32003BCFF7 /* HTY360PlayerVC.m in Sources */,
 				405108BF1BEF8193003BCFF7 /* HTYGLKVC.m in Sources */,
+				90368A4420CE30C700694CDD /* HTY360Target.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

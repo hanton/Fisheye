@@ -414,11 +414,38 @@ int esGenSphere(int numSlices, float radius, float **vertices,
     
     self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
     
-    //GLKMatrix4 mViewMatrix = GLKMatrix4MakeLookAt(-2.0, 0.0, 0.0, -2.0, 0.0, -1.0, 0.0, 1.0, 0.0);
-    //GLKMatrix4 matrix = GLKMatrix4Multiply(mViewMatrix, modelViewMatrix);
-    //self.modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, matrix);
+    [self convertAngles:self.modelViewProjectionMatrix];
     
     glUniformMatrix4fv(uniforms[UNIFORM_MODELVIEWPROJECTION_MATRIX], 1, GL_FALSE, self.modelViewProjectionMatrix.m);
+}
+
+// convert the current view matrix to yaw and roll center
+-(void)convertAngles:(GLKMatrix4)matrix{
+    float yaw = 0;
+    float roll = 0;
+    
+    if (matrix.m00 == 1.0f) {
+        yaw = atan2f(matrix.m02, matrix.m23);
+        roll = 0;
+        
+    }
+    else if (matrix.m00 == -1.0f) {
+        yaw = atan2f(matrix.m02, matrix.m23);
+        roll = 0;
+    }
+    else {
+        yaw = atan2(-matrix.m20,matrix.m00);
+        roll = atan2(-matrix.m12,matrix.m11);
+    }
+    
+    if(roll>0){
+        roll = roll-ES_PI;
+    }
+    else{
+        roll = roll+ES_PI;
+    }
+    
+    [self.videoPlayerController currentTargetingAtYaw:yaw andRoll:roll];
 }
 
 #pragma mark - GLKViewDelegate

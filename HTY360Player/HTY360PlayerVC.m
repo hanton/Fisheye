@@ -10,6 +10,7 @@
 #import "HTYGLKVC.h"
 
 #define ONE_FRAME_DURATION 0.033
+#define ES_PI  (3.14159265f)
 #define HIDE_CONTROL_DELAY 3.0
 #define DEFAULT_VIEW_ALPHA 0.6
 
@@ -26,6 +27,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 @interface HTY360PlayerVC ()
 
+
 @property (strong, nonatomic) IBOutlet UIView *playerControlBackgroundView;
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UISlider *progressSlider;
@@ -38,6 +40,13 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 @property (strong, nonatomic) id timeObserver;
 @property (assign, nonatomic) CGFloat mRestoreAfterScrubbingRate;
 @property (assign, nonatomic) BOOL seekToZeroBeforePlay;
+
+@property (weak, nonatomic) IBOutlet UIImageView *targetImageView;
+@property (assign, nonatomic) BOOL canTargeting;
+@property (weak, nonatomic) IBOutlet UIView *currentYawAndRollView;
+@property (weak, nonatomic) IBOutlet UILabel *currentYawLbl;
+@property (weak, nonatomic) IBOutlet UILabel *currentRollLbl;
+@property (weak, nonatomic) IBOutlet UILabel *targetAcquireLbl;
 
 @end
 
@@ -69,6 +78,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     [self configureControleBackgroundView];
     [self configureBackButton];
     [self configureGyroButton];
+    [self createTarget];
     
 #if SHOW_DEBUG_LABEL
     self.debugView.hidden = NO;
@@ -319,6 +329,17 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         [NSObject cancelPreviousPerformRequestsWithTarget:self];
         [self performSelector:@selector(hideControlsSlowly) withObject:nil afterDelay:HIDE_CONTROL_DELAY];
     }
+}
+
+// Hide or show the target image, the target acquire label and the current yaw and roll view
+- (void)setTargetVisiblity:(BOOL)visible {
+    [self.targetImageView setHidden:!visible];
+    [self.currentYawAndRollView setHidden:!visible];
+}
+
+//  Enable or disable the targeting function (set canTargeting boolean)
+- (void)setTargetingEnabled:(BOOL)enabled {
+    self.canTargeting = enabled;
 }
 
 - (void)hideControlsWithDuration:(NSTimeInterval)duration {
@@ -612,6 +633,76 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
         [self.player removeTimeObserver:self.timeObserver];
         self.timeObserver = nil;
     }
+}
+
+// method called by HTYGLKVC for check if the user is acquiring a target passng yaw and roll
+- (void)currentTargetingAtYaw:(float)yaw andRoll:(float)roll {
+    [self.currentYawLbl setText:[NSString stringWithFormat:@"%f", yaw]];
+    [self.currentRollLbl setText:[NSString stringWithFormat:@"%f", roll]];
+    
+    if(self.currentTarget == nil || !self.canTargeting){
+        return;
+    }
+
+    float currentTime = CMTimeGetSeconds(self.player.currentItem.currentTime);
+    if(self.currentTarget.startTargetingTime <= currentTime && self.currentTarget.endTargetingTime >= currentTime){
+        float halfSideWidth = self.currentTarget.targetingAreaWidth/2;
+        float halfSideHeight = self.currentTarget.targetingAreaHeight/2;
+        
+        float targetX = _currentTarget.yaw;
+        float targetY = _currentTarget.roll;
+        
+        float areaX0 = targetX - halfSideWidth;
+        float areaY0 = targetY - halfSideHeight;
+        
+        CGRect area = CGRectMake(areaX0 , areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
+        CGPoint point = CGPointMake(yaw, roll);
+        
+        if(CGRectContainsPoint(area, point)){
+            [self onTargetAcquired:self.currentTarget];
+            return;
+        }
+        
+        if(targetX>0 && (targetX+halfSideWidth)>ES_PI){
+            area = CGRectMake((areaX0-2*ES_PI), areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
+            if(CGRectContainsPoint(area, point)){
+                [self onTargetAcquired:self.currentTarget];
+                return;
+            }
+        }
+        else if(targetX<0 && (targetX-halfSideWidth)<-ES_PI){
+            area = CGRectMake(areaX0+(2*ES_PI), areaY0, self.currentTarget.targetingAreaWidth, self.currentTarget.targetingAreaHeight);
+            if(CGRectContainsPoint(area, point)){
+                [self onTargetAcquired:self.currentTarget];
+                return;
+            }
+        }
+        [self.targetAcquireLbl setHidden:YES];
+    }
+}
+
+// called when a target is acquired
+- (void)onTargetAcquired:(HTY360Target*)target {
+    if (self.canTargeting) {
+        NSLog(@"ACQUIRED TARGET %d (%@)", target.targetId, target.name);
+        [self.targetAcquireLbl setHidden:NO];
+    }
+}
+
+
+// method for demo, create a target in front of the video (looking straight where the camera is walking)
+- (void)createTarget {
+    [self setTargetingEnabled:YES];
+    HTY360Target* target = [HTY360Target new];
+    target.targetId = 1;
+    target.name = @"Test";
+    target.yaw = 1.383375;
+    target.roll = -0.117379;
+    target.startTargetingTime = 1;
+    target.endTargetingTime = 40;
+    target.targetingAreaHeight = 0.40;
+    target.targetingAreaWidth = 0.2;
+    self.currentTarget = target;
 }
 
 @end
