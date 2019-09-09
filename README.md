@@ -1,3 +1,5 @@
+🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺 The **Metal** with **Swift 5.0** version is comming 🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺
+
 # 360 VR Player
 ### A Open Source, Ad-free, Native and Universal 360 dgree panorama video player for iOS. 
 
