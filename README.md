@@ -15,10 +15,6 @@
 
 ## Motivation
 
-#### Facebook has released a new function to play 360° video in its app.
-
-![screenshot](./Screenshot/360Facebook.png)
-
 #### Youtube App also has a 360° video channel.
 
 ![screenshot](./Screenshot/360Youtube.png)
