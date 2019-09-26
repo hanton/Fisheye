@@ -13,12 +13,6 @@
 ## Tutorial (Swift)
 #### [How to Create a 360 Video Player with OpenGL ES 3.0 and GLKit in iOS](https://medium.com/@hanton.yang/how-to-create-a-360-video-player-with-opengl-es-3-0-and-glkit-360-3f29a9cfac88)
 
-## Motivation
-
-#### Youtube App also has a 360° video channel.
-
-![screenshot](./Screenshot/360Youtube.png)
-
 ## Features
 
 * Play Online 360° Video
