@@ -37,5 +37,35 @@
 ## Author
 Hanton Yang, hanton.yang@gmail.com
 
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/hanton/HTY360Player/graphs/contributors"><img src="https://opencollective.com/HTY360Player/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/HTY360Player/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/HTY360Player"><img src="https://opencollective.com/HTY360Player/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/HTY360Player/contribute)]
+
+<a href="https://opencollective.com/HTY360Player/organization/0/website"><img src="https://opencollective.com/HTY360Player/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/1/website"><img src="https://opencollective.com/HTY360Player/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/2/website"><img src="https://opencollective.com/HTY360Player/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/3/website"><img src="https://opencollective.com/HTY360Player/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/4/website"><img src="https://opencollective.com/HTY360Player/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/5/website"><img src="https://opencollective.com/HTY360Player/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/6/website"><img src="https://opencollective.com/HTY360Player/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/7/website"><img src="https://opencollective.com/HTY360Player/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/8/website"><img src="https://opencollective.com/HTY360Player/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/HTY360Player/organization/9/website"><img src="https://opencollective.com/HTY360Player/organization/9/avatar.svg"></a>
+
 ## License
 HTY360Player is available under the MIT license. See the LICENSE file for more info.
