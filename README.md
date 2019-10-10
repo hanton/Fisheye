@@ -34,9 +34,6 @@
 4. Push to the branch (git push origin my-new-feature)
 5. Create a new Pull Request
 
-## Author
-Hanton Yang, hanton.yang@gmail.com
-
 ## Contributors
 
 ### Code Contributors
