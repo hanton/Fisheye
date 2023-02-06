@@ -1,6 +1,4 @@
-🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺 The **Metal** with **Swift 5.0** version is comming 🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺🎺
-
-# 360 VR Player
+# Fisheye
 ### A Open Source, Ad-free, Native and Universal 360 dgree panorama video player for iOS. 
 
 <img src="https://cloud.githubusercontent.com/assets/1676460/7080282/b1b26424-defd-11e4-820f-94f50ff467a8.png" width="134" height="20" alt="Space"/>[<img src="https://cloud.githubusercontent.com/assets/219689/5575342/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="200" alt="AppStore"/>](https://itunes.apple.com/hk/app/360-vr-player/id1061464612?mt=8)
@@ -8,7 +6,7 @@
 ![screenshot](./Screenshot/PlayDemo.gif)
 
 ## About
-#### HTY360Player is a 360 degree panorama video player for iOS.
+#### Fisheye is a 360 degree panorama video player for iOS.
 
 ## Tutorial (Swift)
 #### [How to Create a 360 Video Player with OpenGL ES 3.0 and GLKit in iOS](https://medium.com/@hanton.yang/how-to-create-a-360-video-player-with-opengl-es-3-0-and-glkit-360-3f29a9cfac88)
@@ -35,4 +33,4 @@
 5. Create a new Pull Request
 
 ## License
-HTY360Player is available under the MIT license. See the LICENSE file for more info.
+Fisheye is available under the MIT license. See the LICENSE file for more info.
