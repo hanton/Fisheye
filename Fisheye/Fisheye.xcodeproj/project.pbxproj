@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B4403AF2991B100006C253A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403AE2991B100006C253A /* AppDelegate.swift */; };
+		8B4403B12991B100006C253A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403B02991B100006C253A /* SceneDelegate.swift */; };
+		8B4403B32991B100006C253A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403B22991B100006C253A /* VideoViewController.swift */; };
+		8B4403B62991B100006C253A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403B42991B100006C253A /* Main.storyboard */; };
+		8B4403B82991B101006C253A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403B72991B101006C253A /* Assets.xcassets */; };
+		8B4403BB2991B101006C253A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403B92991B101006C253A /* LaunchScreen.storyboard */; };
+		8B4403C62991B101006C253A /* FisheyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403C52991B101006C253A /* FisheyeTests.swift */; };
+		8B4403D02991B101006C253A /* FisheyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403CF2991B101006C253A /* FisheyeUITests.swift */; };
+		8B4403D22991B101006C253A /* FisheyeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403D12991B101006C253A /* FisheyeUITestsLaunchTests.swift */; };
+		8B4403E02991B43D006C253A /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403DE2991B43D006C253A /* Renderer.swift */; };
+		8B4403E12991B43D006C253A /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403DF2991B43D006C253A /* VideoPlayer.swift */; };
+		8B4403EA2991B4A7006C253A /* fragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403E62991B4A7006C253A /* fragmentShader.glsl */; };
+		8B4403EB2991B4A7006C253A /* GLProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403E72991B4A7006C253A /* GLProgram.swift */; };
+		8B4403EC2991B4A7006C253A /* vertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403E82991B4A7006C253A /* vertexShader.glsl */; };
+		8B4403ED2991B4A7006C253A /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403E92991B4A7006C253A /* Shader.swift */; };
+		8B4403F22991B4BA006C253A /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403EF2991B4BA006C253A /* esShapes.c */; };
+		8B4403F32991B4BA006C253A /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403F02991B4BA006C253A /* Sphere.swift */; };
+		8B4403F62991B4CF006C253A /* GLKMatrix4+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403F52991B4CF006C253A /* GLKMatrix4+Conversions.swift */; };
+		8B4403FF2991B980006C253A /* demo.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403FE2991B97F006C253A /* demo.m4v */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B4403C22991B101006C253A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B4403A32991B100006C253A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B4403AA2991B100006C253A;
+			remoteInfo = Fisheye;
+		};
+		8B4403CC2991B101006C253A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B4403A32991B100006C253A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B4403AA2991B100006C253A;
+			remoteInfo = Fisheye;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B4403AB2991B100006C253A /* Fisheye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fisheye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4403AE2991B100006C253A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B4403B02991B100006C253A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8B4403B22991B100006C253A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		8B4403B52991B100006C253A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B4403B72991B101006C253A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B4403BA2991B101006C253A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B4403BC2991B101006C253A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B4403C12991B101006C253A /* FisheyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FisheyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4403C52991B101006C253A /* FisheyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisheyeTests.swift; sourceTree = "<group>"; };
+		8B4403CB2991B101006C253A /* FisheyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FisheyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4403CF2991B101006C253A /* FisheyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisheyeUITests.swift; sourceTree = "<group>"; };
+		8B4403D12991B101006C253A /* FisheyeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisheyeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B4403DE2991B43D006C253A /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		8B4403DF2991B43D006C253A /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		8B4403E62991B4A7006C253A /* fragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragmentShader.glsl; sourceTree = "<group>"; };
+		8B4403E72991B4A7006C253A /* GLProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLProgram.swift; sourceTree = "<group>"; };
+		8B4403E82991B4A7006C253A /* vertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertexShader.glsl; sourceTree = "<group>"; };
+		8B4403E92991B4A7006C253A /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
+		8B4403EF2991B4BA006C253A /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
+		8B4403F02991B4BA006C253A /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		8B4403F12991B4BA006C253A /* esShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esShapes.h; sourceTree = "<group>"; };
+		8B4403F52991B4CF006C253A /* GLKMatrix4+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GLKMatrix4+Conversions.swift"; sourceTree = "<group>"; };
+		8B4403FD2991B68E006C253A /* Fisheye-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fisheye-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B4403FE2991B97F006C253A /* demo.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.m4v; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B4403A82991B100006C253A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4403BE2991B101006C253A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4403C82991B101006C253A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B4403A22991B100006C253A = {
+			isa = PBXGroup;
+			children = (
+				8B4403AD2991B100006C253A /* Fisheye */,
+				8B4403C42991B101006C253A /* FisheyeTests */,
+				8B4403CE2991B101006C253A /* FisheyeUITests */,
+				8B4403AC2991B100006C253A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B4403AC2991B100006C253A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403AB2991B100006C253A /* Fisheye.app */,
+				8B4403C12991B101006C253A /* FisheyeTests.xctest */,
+				8B4403CB2991B101006C253A /* FisheyeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B4403AD2991B100006C253A /* Fisheye */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403AE2991B100006C253A /* AppDelegate.swift */,
+				8B4403B02991B100006C253A /* SceneDelegate.swift */,
+				8B4403E22991B464006C253A /* Main */,
+				8B4403E52991B4A7006C253A /* Shader */,
+				8B4403EE2991B4BA006C253A /* Model */,
+				8B4403F42991B4CF006C253A /* Extension */,
+				8B4403B42991B100006C253A /* Main.storyboard */,
+				8B4403B72991B101006C253A /* Assets.xcassets */,
+				8B4403FE2991B97F006C253A /* demo.m4v */,
+				8B4403FD2991B68E006C253A /* Fisheye-Bridging-Header.h */,
+				8B4403B92991B101006C253A /* LaunchScreen.storyboard */,
+				8B4403BC2991B101006C253A /* Info.plist */,
+			);
+			path = Fisheye;
+			sourceTree = "<group>";
+		};
+		8B4403C42991B101006C253A /* FisheyeTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403C52991B101006C253A /* FisheyeTests.swift */,
+			);
+			path = FisheyeTests;
+			sourceTree = "<group>";
+		};
+		8B4403CE2991B101006C253A /* FisheyeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403CF2991B101006C253A /* FisheyeUITests.swift */,
+				8B4403D12991B101006C253A /* FisheyeUITestsLaunchTests.swift */,
+			);
+			path = FisheyeUITests;
+			sourceTree = "<group>";
+		};
+		8B4403E22991B464006C253A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403B22991B100006C253A /* VideoViewController.swift */,
+				8B4403DE2991B43D006C253A /* Renderer.swift */,
+				8B4403DF2991B43D006C253A /* VideoPlayer.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8B4403E52991B4A7006C253A /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403E92991B4A7006C253A /* Shader.swift */,
+				8B4403E72991B4A7006C253A /* GLProgram.swift */,
+				8B4403E82991B4A7006C253A /* vertexShader.glsl */,
+				8B4403E62991B4A7006C253A /* fragmentShader.glsl */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+		8B4403EE2991B4BA006C253A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403F02991B4BA006C253A /* Sphere.swift */,
+				8B4403F12991B4BA006C253A /* esShapes.h */,
+				8B4403EF2991B4BA006C253A /* esShapes.c */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B4403F42991B4CF006C253A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403F52991B4CF006C253A /* GLKMatrix4+Conversions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B4403AA2991B100006C253A /* Fisheye */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B4403D52991B101006C253A /* Build configuration list for PBXNativeTarget "Fisheye" */;
+			buildPhases = (
+				8B4403A72991B100006C253A /* Sources */,
+				8B4403A82991B100006C253A /* Frameworks */,
+				8B4403A92991B100006C253A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fisheye;
+			productName = Fisheye;
+			productReference = 8B4403AB2991B100006C253A /* Fisheye.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B4403C02991B101006C253A /* FisheyeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B4403D82991B101006C253A /* Build configuration list for PBXNativeTarget "FisheyeTests" */;
+			buildPhases = (
+				8B4403BD2991B101006C253A /* Sources */,
+				8B4403BE2991B101006C253A /* Frameworks */,
+				8B4403BF2991B101006C253A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B4403C32991B101006C253A /* PBXTargetDependency */,
+			);
+			name = FisheyeTests;
+			productName = FisheyeTests;
+			productReference = 8B4403C12991B101006C253A /* FisheyeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B4403CA2991B101006C253A /* FisheyeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B4403DB2991B101006C253A /* Build configuration list for PBXNativeTarget "FisheyeUITests" */;
+			buildPhases = (
+				8B4403C72991B101006C253A /* Sources */,
+				8B4403C82991B101006C253A /* Frameworks */,
+				8B4403C92991B101006C253A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B4403CD2991B101006C253A /* PBXTargetDependency */,
+			);
+			name = FisheyeUITests;
+			productName = FisheyeUITests;
+			productReference = 8B4403CB2991B101006C253A /* FisheyeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B4403A32991B100006C253A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8B4403AA2991B100006C253A = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					8B4403C02991B101006C253A = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8B4403AA2991B100006C253A;
+					};
+					8B4403CA2991B101006C253A = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8B4403AA2991B100006C253A;
+					};
+				};
+			};
+			buildConfigurationList = 8B4403A62991B100006C253A /* Build configuration list for PBXProject "Fisheye" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B4403A22991B100006C253A;
+			productRefGroup = 8B4403AC2991B100006C253A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B4403AA2991B100006C253A /* Fisheye */,
+				8B4403C02991B101006C253A /* FisheyeTests */,
+				8B4403CA2991B101006C253A /* FisheyeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B4403A92991B100006C253A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4403BB2991B101006C253A /* LaunchScreen.storyboard in Resources */,
+				8B4403B82991B101006C253A /* Assets.xcassets in Resources */,
+				8B4403EC2991B4A7006C253A /* vertexShader.glsl in Resources */,
+				8B4403EA2991B4A7006C253A /* fragmentShader.glsl in Resources */,
+				8B4403FF2991B980006C253A /* demo.m4v in Resources */,
+				8B4403B62991B100006C253A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4403BF2991B101006C253A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4403C92991B101006C253A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B4403A72991B100006C253A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4403F62991B4CF006C253A /* GLKMatrix4+Conversions.swift in Sources */,
+				8B4403ED2991B4A7006C253A /* Shader.swift in Sources */,
+				8B4403E02991B43D006C253A /* Renderer.swift in Sources */,
+				8B4403F32991B4BA006C253A /* Sphere.swift in Sources */,
+				8B4403EB2991B4A7006C253A /* GLProgram.swift in Sources */,
+				8B4403E12991B43D006C253A /* VideoPlayer.swift in Sources */,
+				8B4403B32991B100006C253A /* VideoViewController.swift in Sources */,
+				8B4403AF2991B100006C253A /* AppDelegate.swift in Sources */,
+				8B4403B12991B100006C253A /* SceneDelegate.swift in Sources */,
+				8B4403F22991B4BA006C253A /* esShapes.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4403BD2991B101006C253A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4403C62991B101006C253A /* FisheyeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4403C72991B101006C253A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B4403D22991B101006C253A /* FisheyeUITestsLaunchTests.swift in Sources */,
+				8B4403D02991B101006C253A /* FisheyeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B4403C32991B101006C253A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B4403AA2991B100006C253A /* Fisheye */;
+			targetProxy = 8B4403C22991B101006C253A /* PBXContainerItemProxy */;
+		};
+		8B4403CD2991B101006C253A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B4403AA2991B100006C253A /* Fisheye */;
+			targetProxy = 8B4403CC2991B101006C253A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8B4403B42991B100006C253A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B4403B52991B100006C253A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B4403B92991B101006C253A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B4403BA2991B101006C253A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B4403D32991B101006C253A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B4403D42991B101006C253A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B4403D62991B101006C253A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fisheye/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fisheye;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.Fisheye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(SWIFT_MODULE_NAME)-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B4403D72991B101006C253A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fisheye/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fisheye;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.Fisheye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(SWIFT_MODULE_NAME)-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B4403D92991B101006C253A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.FisheyeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fisheye.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fisheye";
+			};
+			name = Debug;
+		};
+		8B4403DA2991B101006C253A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.FisheyeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fisheye.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fisheye";
+			};
+			name = Release;
+		};
+		8B4403DC2991B101006C253A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.FisheyeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fisheye;
+			};
+			name = Debug;
+		};
+		8B4403DD2991B101006C253A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.FisheyeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fisheye;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B4403A62991B100006C253A /* Build configuration list for PBXProject "Fisheye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B4403D32991B101006C253A /* Debug */,
+				8B4403D42991B101006C253A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B4403D52991B101006C253A /* Build configuration list for PBXNativeTarget "Fisheye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B4403D62991B101006C253A /* Debug */,
+				8B4403D72991B101006C253A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B4403D82991B101006C253A /* Build configuration list for PBXNativeTarget "FisheyeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B4403D92991B101006C253A /* Debug */,
+				8B4403DA2991B101006C253A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B4403DB2991B101006C253A /* Build configuration list for PBXNativeTarget "FisheyeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B4403DC2991B101006C253A /* Debug */,
+				8B4403DD2991B101006C253A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B4403A32991B100006C253A /* Project object */;
+}
