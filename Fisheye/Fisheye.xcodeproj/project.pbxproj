@@ -9,13 +9,23 @@
 /* Begin PBXBuildFile section */
 		8B4403AF2991B100006C253A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403AE2991B100006C253A /* AppDelegate.swift */; };
 		8B4403B12991B100006C253A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403B02991B100006C253A /* SceneDelegate.swift */; };
-		8B4403B32991B100006C253A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403B22991B100006C253A /* ViewController.swift */; };
+		8B4403B32991B100006C253A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403B22991B100006C253A /* VideoViewController.swift */; };
 		8B4403B62991B100006C253A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403B42991B100006C253A /* Main.storyboard */; };
 		8B4403B82991B101006C253A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403B72991B101006C253A /* Assets.xcassets */; };
 		8B4403BB2991B101006C253A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403B92991B101006C253A /* LaunchScreen.storyboard */; };
 		8B4403C62991B101006C253A /* FisheyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403C52991B101006C253A /* FisheyeTests.swift */; };
 		8B4403D02991B101006C253A /* FisheyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403CF2991B101006C253A /* FisheyeUITests.swift */; };
 		8B4403D22991B101006C253A /* FisheyeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403D12991B101006C253A /* FisheyeUITestsLaunchTests.swift */; };
+		8B4403E02991B43D006C253A /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403DE2991B43D006C253A /* Renderer.swift */; };
+		8B4403E12991B43D006C253A /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403DF2991B43D006C253A /* VideoPlayer.swift */; };
+		8B4403EA2991B4A7006C253A /* fragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403E62991B4A7006C253A /* fragmentShader.glsl */; };
+		8B4403EB2991B4A7006C253A /* GLProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403E72991B4A7006C253A /* GLProgram.swift */; };
+		8B4403EC2991B4A7006C253A /* vertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403E82991B4A7006C253A /* vertexShader.glsl */; };
+		8B4403ED2991B4A7006C253A /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403E92991B4A7006C253A /* Shader.swift */; };
+		8B4403F22991B4BA006C253A /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403EF2991B4BA006C253A /* esShapes.c */; };
+		8B4403F32991B4BA006C253A /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403F02991B4BA006C253A /* Sphere.swift */; };
+		8B4403F62991B4CF006C253A /* GLKMatrix4+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4403F52991B4CF006C253A /* GLKMatrix4+Conversions.swift */; };
+		8B4403FF2991B980006C253A /* demo.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 8B4403FE2991B97F006C253A /* demo.m4v */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +49,7 @@
 		8B4403AB2991B100006C253A /* Fisheye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fisheye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4403AE2991B100006C253A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4403B02991B100006C253A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8B4403B22991B100006C253A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B4403B22991B100006C253A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		8B4403B52991B100006C253A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B4403B72991B101006C253A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4403BA2991B101006C253A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +59,18 @@
 		8B4403CB2991B101006C253A /* FisheyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FisheyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4403CF2991B101006C253A /* FisheyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisheyeUITests.swift; sourceTree = "<group>"; };
 		8B4403D12991B101006C253A /* FisheyeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisheyeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B4403DE2991B43D006C253A /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		8B4403DF2991B43D006C253A /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		8B4403E62991B4A7006C253A /* fragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragmentShader.glsl; sourceTree = "<group>"; };
+		8B4403E72991B4A7006C253A /* GLProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLProgram.swift; sourceTree = "<group>"; };
+		8B4403E82991B4A7006C253A /* vertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertexShader.glsl; sourceTree = "<group>"; };
+		8B4403E92991B4A7006C253A /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
+		8B4403EF2991B4BA006C253A /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
+		8B4403F02991B4BA006C253A /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		8B4403F12991B4BA006C253A /* esShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esShapes.h; sourceTree = "<group>"; };
+		8B4403F52991B4CF006C253A /* GLKMatrix4+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GLKMatrix4+Conversions.swift"; sourceTree = "<group>"; };
+		8B4403FD2991B68E006C253A /* Fisheye-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fisheye-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B4403FE2991B97F006C253A /* demo.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.m4v; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +123,14 @@
 			children = (
 				8B4403AE2991B100006C253A /* AppDelegate.swift */,
 				8B4403B02991B100006C253A /* SceneDelegate.swift */,
-				8B4403B22991B100006C253A /* ViewController.swift */,
+				8B4403E22991B464006C253A /* Main */,
+				8B4403E52991B4A7006C253A /* Shader */,
+				8B4403EE2991B4BA006C253A /* Model */,
+				8B4403F42991B4CF006C253A /* Extension */,
 				8B4403B42991B100006C253A /* Main.storyboard */,
 				8B4403B72991B101006C253A /* Assets.xcassets */,
+				8B4403FE2991B97F006C253A /* demo.m4v */,
+				8B4403FD2991B68E006C253A /* Fisheye-Bridging-Header.h */,
 				8B4403B92991B101006C253A /* LaunchScreen.storyboard */,
 				8B4403BC2991B101006C253A /* Info.plist */,
 			);
@@ -125,6 +152,45 @@
 				8B4403D12991B101006C253A /* FisheyeUITestsLaunchTests.swift */,
 			);
 			path = FisheyeUITests;
+			sourceTree = "<group>";
+		};
+		8B4403E22991B464006C253A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403B22991B100006C253A /* VideoViewController.swift */,
+				8B4403DE2991B43D006C253A /* Renderer.swift */,
+				8B4403DF2991B43D006C253A /* VideoPlayer.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8B4403E52991B4A7006C253A /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403E92991B4A7006C253A /* Shader.swift */,
+				8B4403E72991B4A7006C253A /* GLProgram.swift */,
+				8B4403E82991B4A7006C253A /* vertexShader.glsl */,
+				8B4403E62991B4A7006C253A /* fragmentShader.glsl */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+		8B4403EE2991B4BA006C253A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403F02991B4BA006C253A /* Sphere.swift */,
+				8B4403F12991B4BA006C253A /* esShapes.h */,
+				8B4403EF2991B4BA006C253A /* esShapes.c */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B4403F42991B4CF006C253A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B4403F52991B4CF006C253A /* GLKMatrix4+Conversions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +299,9 @@
 			files = (
 				8B4403BB2991B101006C253A /* LaunchScreen.storyboard in Resources */,
 				8B4403B82991B101006C253A /* Assets.xcassets in Resources */,
+				8B4403EC2991B4A7006C253A /* vertexShader.glsl in Resources */,
+				8B4403EA2991B4A7006C253A /* fragmentShader.glsl in Resources */,
+				8B4403FF2991B980006C253A /* demo.m4v in Resources */,
 				8B4403B62991B100006C253A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,9 +327,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B4403B32991B100006C253A /* ViewController.swift in Sources */,
+				8B4403F62991B4CF006C253A /* GLKMatrix4+Conversions.swift in Sources */,
+				8B4403ED2991B4A7006C253A /* Shader.swift in Sources */,
+				8B4403E02991B43D006C253A /* Renderer.swift in Sources */,
+				8B4403F32991B4BA006C253A /* Sphere.swift in Sources */,
+				8B4403EB2991B4A7006C253A /* GLProgram.swift in Sources */,
+				8B4403E12991B43D006C253A /* VideoPlayer.swift in Sources */,
+				8B4403B32991B100006C253A /* VideoViewController.swift in Sources */,
 				8B4403AF2991B100006C253A /* AppDelegate.swift in Sources */,
 				8B4403B12991B100006C253A /* SceneDelegate.swift in Sources */,
+				8B4403F22991B4BA006C253A /* esShapes.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,11 +515,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fisheye/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fisheye;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,6 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.Fisheye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(SWIFT_MODULE_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,11 +546,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fisheye/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fisheye;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,6 +562,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hanton.Fisheye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(SWIFT_MODULE_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
