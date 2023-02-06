@@ -1,8 +1,6 @@
 # Fisheye
 ### A Open Source, Ad-free, Native and Universal 360 dgree panorama video player for iOS. 
 
-<img src="https://cloud.githubusercontent.com/assets/1676460/7080282/b1b26424-defd-11e4-820f-94f50ff467a8.png" width="134" height="20" alt="Space"/>[<img src="https://cloud.githubusercontent.com/assets/219689/5575342/963e0ee8-9013-11e4-8091-7ece67d64729.png" width="200" alt="AppStore"/>](https://itunes.apple.com/hk/app/360-vr-player/id1061464612?mt=8)
-
 ![screenshot](./Screenshot/PlayDemo.gif)
 
 ## About
