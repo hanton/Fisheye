@@ -73,7 +73,7 @@ class Renderer {
     }
 
     func updateModelViewProjectionMatrix(_ rotationX: Float, _ rotationY: Float) {
-        let aspect = fabs(Float(UIScreen.main.bounds.size.width) / Float(UIScreen.main.bounds.size.height))
+        let aspect = abs(Float(UIScreen.main.bounds.size.width) / Float(UIScreen.main.bounds.size.height))
         let nearZ: Float = 0.1
         let farZ: Float = 100.0
         let fieldOfViewInRadians = GLKMathDegreesToRadians(fieldOfView)
