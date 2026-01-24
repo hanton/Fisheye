@@ -1,13 +1,13 @@
 //
-//  FisheyeUITestsLaunchTests.swift
-//  FisheyeUITests
+//  DemoAppUITestsLaunchTests.swift
+//  DemoAppUITests
 //
 //  Created by Hanton Yang on 2/6/23.
 //
 
 import XCTest
 
-final class FisheyeUITestsLaunchTests: XCTestCase {
+final class DemoAppUITestsLaunchTests: XCTestCase {
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
