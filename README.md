@@ -10,7 +10,8 @@ A 360-degree panorama video player library for iOS.
 - Touch-based rotation for immersive viewing
 - Easy-to-use `FisheyeView` API
 - Configurable field of view, frame rate, and touch sensitivity
-- Pure Swift implementation (no C dependencies)
+- Metal-based rendering for modern iOS devices
+- Pure Swift implementation
 
 ## Requirements
 
@@ -33,7 +34,7 @@ Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/user/Fisheye", from: "1.0.0")
+    .package(url: "https://github.com/user/Fisheye", from: "2.0.0")
 ]
 ```
 
@@ -105,27 +106,27 @@ The library is structured as follows:
 Sources/Fisheye/
 ├── Fisheye.swift              # Library entry point and version
 ├── Core/
-│   ├── FisheyeView.swift      # High-level UIView API
+│   ├── FisheyeView.swift      # High-level MTKView wrapper
 │   └── FisheyeConfiguration.swift
 ├── Rendering/
-│   ├── Renderer.swift         # OpenGL ES rendering
-│   ├── Shader.swift           # Shader program management
-│   ├── GLProgram.swift        # Shader compilation
-│   └── GLKMatrix4+Conversions.swift
+│   └── MetalRenderer.swift    # Metal-based rendering with YUV conversion
 ├── Geometry/
 │   ├── Sphere.swift           # Sphere model
 │   └── SphereGenerator.swift  # Pure Swift sphere generation
 ├── Video/
 │   └── VideoPlayer.swift      # AVFoundation video playback
+├── Utilities/
+│   └── simd+Extensions.swift  # Matrix math helpers
 └── Resources/
-    ├── vertexShader.glsl
-    └── fragmentShader.glsl
+    └── Shaders.metal          # Metal shading language
 ```
 
 ## Tutorial
 
 For a detailed explanation of how the 360-degree video rendering works, see:
 [How to Create a 360 Video Player with OpenGL ES 3.0 and GLKit in iOS](https://medium.com/@hanton.yang/how-to-create-a-360-video-player-with-opengl-es-3-0-and-glkit-360-3f29a9cfac88)
+
+**Note:** This tutorial describes the OpenGL ES version (v1.x). Version 2.0+ uses Metal rendering but follows similar principles.
 
 ## Contributing
 
