@@ -16,7 +16,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+
+    - name: Show available simulators
+      run: xcrun simctl list devices available
+
+    - name: Build for iOS Simulator
+      run: |
+        xcodebuild build \
+          -scheme Fisheye \
+          -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=latest' \
+          -derivedDataPath .build \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO
+
+    - name: Run tests on iOS Simulator
+      run: |
+        xcodebuild test \
+          -scheme Fisheye \
+          -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=latest' \
+          -derivedDataPath .build \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO
