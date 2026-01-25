@@ -5,8 +5,6 @@
 //  Created by Hanton Yang on 2/6/23.
 //
 
-import GLKit
-
 /// A sphere model used for 360-degree video rendering.
 public class Sphere {
     /// Vertex positions for the sphere mesh.

@@ -2,6 +2,8 @@
 //  FisheyeConfiguration.swift
 //  Fisheye
 //
+//  Created by Hanton Yang on 1/24/26.
+//
 //  Configuration options for FisheyeView.
 //
 

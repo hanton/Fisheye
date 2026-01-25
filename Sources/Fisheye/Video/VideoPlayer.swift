@@ -63,9 +63,11 @@ public class VideoPlayer {
     }
 
     private func configureOutput(framesPerSecond: Int) {
-        let pixelBuffer = [kCVPixelBufferPixelFormatTypeKey as String:
-            NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)]
-        output = AVPlayerItemVideoOutput(pixelBufferAttributes: pixelBuffer)
+        let pixelBufferAttributes: [String: Any] = [
+            kCVPixelBufferPixelFormatTypeKey as String: NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange),
+            kCVPixelBufferMetalCompatibilityKey as String: true
+        ]
+        output = AVPlayerItemVideoOutput(pixelBufferAttributes: pixelBufferAttributes)
         output.requestNotificationOfMediaDataChange(withAdvanceInterval: 1.0 / TimeInterval(framesPerSecond))
         avPlayerItem.add(output)
     }

@@ -2,6 +2,8 @@
 //  Fisheye.swift
 //  Fisheye
 //
+//  Created by Hanton Yang on 1/24/26.
+//
 //  A 360-degree panorama video player for iOS.
 //
 

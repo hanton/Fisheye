@@ -2,6 +2,8 @@
 //  SphereGenerator.swift
 //  Fisheye
 //
+//  Created by Hanton Yang on 1/24/26.
+//
 //  Pure Swift port of sphere generation algorithm.
 //
 //  Original C implementation:
@@ -99,15 +101,15 @@ public enum SphereGenerator {
                 let bottomRight = UInt16((i + 1) * (numSlices + 1) + (j + 1))
                 let topRight = UInt16(i * (numSlices + 1) + (j + 1))
 
-                // First triangle
+                // First triangle (reversed winding for inward-facing)
                 indices[indexOffset] = topLeft
-                indices[indexOffset + 1] = bottomLeft
-                indices[indexOffset + 2] = bottomRight
+                indices[indexOffset + 1] = bottomRight
+                indices[indexOffset + 2] = bottomLeft
 
-                // Second triangle
+                // Second triangle (reversed winding for inward-facing)
                 indices[indexOffset + 3] = topLeft
-                indices[indexOffset + 4] = bottomRight
-                indices[indexOffset + 5] = topRight
+                indices[indexOffset + 4] = topRight
+                indices[indexOffset + 5] = bottomRight
 
                 indexOffset += 6
             }

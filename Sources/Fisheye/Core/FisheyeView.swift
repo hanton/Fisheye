@@ -2,14 +2,16 @@
 //  FisheyeView.swift
 //  Fisheye
 //
+//  Created by Hanton Yang on 1/24/26.
+//
 //  A UIView subclass for displaying 360-degree video content.
 //
 
-import GLKit
+import MetalKit
 import UIKit
 
 /// A view that displays 360-degree video content with touch-based rotation.
-public class FisheyeView: GLKView {
+public class FisheyeView: MTKView {
     /// The configuration for video playback.
     public let configuration: FisheyeConfiguration
 
@@ -18,9 +20,10 @@ public class FisheyeView: GLKView {
         return videoPlayer?.isPlaying ?? false
     }
 
-    private var renderer: Renderer?
+    private var renderer: MetalRenderer?
     private var videoPlayer: VideoPlayer?
-    private var displayLink: CADisplayLink?
+    private let metalDevice: MTLDevice
+    private var commandQueue: MTLCommandQueue?
 
     private var rotationX: Float = 0.0
     private var rotationY: Float = 0.0
@@ -32,32 +35,45 @@ public class FisheyeView: GLKView {
     ///   - configuration: The configuration options. Defaults to `.default`.
     public init(frame: CGRect, configuration: FisheyeConfiguration = .default) {
         self.configuration = configuration
-        let glContext = EAGLContext(api: .openGLES3)!
-        super.init(frame: frame, context: glContext)
-        setupOpenGL(context: glContext)
-    }
-
-    required init?(coder: NSCoder) {
-        self.configuration = .default
-        super.init(coder: coder)
-        if let glContext = EAGLContext(api: .openGLES3) {
-            self.context = glContext
-            setupOpenGL(context: glContext)
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            fatalError("Metal is not supported on this device")
         }
+        self.metalDevice = device
+        super.init(frame: frame, device: device)
+        setupMetal()
     }
 
-    deinit {
-        stopDisplayLink()
+    required init(coder: NSCoder) {
+        self.configuration = .default
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            fatalError("Metal is not supported on this device")
+        }
+        self.metalDevice = device
+        super.init(coder: coder)
+        self.device = device
+        setupMetal()
     }
 
-    private func setupOpenGL(context glContext: EAGLContext) {
-        EAGLContext.setCurrent(glContext)
-        self.drawableColorFormat = .RGBA8888
-        self.drawableDepthFormat = .format24
+    private func setupMetal() {
+        self.delegate = self
+        self.device = metalDevice
 
-        let shader = Shader()
+        self.colorPixelFormat = .bgra8Unorm
+        self.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 1)
+        self.preferredFramesPerSecond = configuration.framesPerSecond
+        self.isPaused = false
+        self.enableSetNeedsDisplay = false
+        self.isOpaque = true
+        self.framebufferOnly = true
+
+        guard let queue = metalDevice.makeCommandQueue() else {
+            return
+        }
+        commandQueue = queue
+
         let model = Sphere(sliceCount: configuration.sphereSlices)
-        renderer = Renderer(context: glContext, shader: shader, model: model, fieldOfView: configuration.fieldOfView)
+        renderer = MetalRenderer(device: metalDevice, model: model, fieldOfView: configuration.fieldOfView)
+        renderer?.setViewportSize(bounds.size)
     }
 
     /// Loads a video from the specified URL.
@@ -71,13 +87,12 @@ public class FisheyeView: GLKView {
     /// Starts video playback.
     public func play() {
         videoPlayer?.play()
-        startDisplayLink()
     }
 
     /// Pauses video playback.
     public func pause() {
         videoPlayer?.pause()
-        stopDisplayLink()
+        self.isPaused = true
     }
 
     /// Stops video playback and releases resources.
@@ -91,31 +106,11 @@ public class FisheyeView: GLKView {
         renderer?.setViewportSize(bounds.size)
     }
 
-    // MARK: - Display Link
-
-    private func startDisplayLink() {
-        guard displayLink == nil else { return }
-        displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidFire))
-        displayLink?.preferredFrameRateRange = CAFrameRateRange(minimum: 30, maximum: Float(configuration.framesPerSecond), preferred: Float(configuration.framesPerSecond))
-        displayLink?.add(to: .main, forMode: .common)
-    }
-
-    private func stopDisplayLink() {
-        displayLink?.invalidate()
-        displayLink = nil
-    }
-
-    @objc private func displayLinkDidFire() {
-        setNeedsDisplay()
-    }
-
-    // MARK: - Drawing
-
-    public override func draw(_ rect: CGRect) {
-        guard let pixelBuffer = videoPlayer?.retrievePixelBuffer() else { return }
-        renderer?.updateTexture(pixelBuffer)
-        renderer?.updateModelViewProjectionMatrix(rotationX, rotationY)
-        renderer?.render()
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+        if window != nil {
+            setNeedsLayout()
+        }
     }
 
     // MARK: - Touch Handling
@@ -133,5 +128,28 @@ public class FisheyeView: GLKView {
 
         rotationX += diffY
         rotationY += diffX
+    }
+}
+
+// MARK: - MTKViewDelegate
+
+extension FisheyeView: MTKViewDelegate {
+    public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        renderer?.setViewportSize(size)
+    }
+
+    public func draw(in view: MTKView) {
+        guard let commandBuffer = commandQueue?.makeCommandBuffer() else {
+            return
+        }
+
+        if let pixelBuffer = videoPlayer?.retrievePixelBuffer() {
+            renderer?.updateTexture(pixelBuffer)
+        }
+
+        renderer?.updateModelViewProjectionMatrix(rotationX, rotationY)
+        renderer?.render(in: view, commandBuffer: commandBuffer)
+
+        commandBuffer.commit()
     }
 }

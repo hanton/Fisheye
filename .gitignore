@@ -11,3 +11,6 @@ DerivedData/
 
 # macOS
 .DS_Store
+
+# Claude Code
+CLAUDE.local.md
