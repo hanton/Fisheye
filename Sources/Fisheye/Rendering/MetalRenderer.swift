@@ -270,6 +270,7 @@ public class MetalRenderer {
     /// - Parameters:
     ///   - view: The MTKView to render into.
     ///   - commandBuffer: The command buffer to encode rendering commands.
+    @MainActor
     public func render(in view: MTKView, commandBuffer: MTLCommandBuffer) {
         guard let renderPassDescriptor = view.currentRenderPassDescriptor,
               let drawable = view.currentDrawable,
