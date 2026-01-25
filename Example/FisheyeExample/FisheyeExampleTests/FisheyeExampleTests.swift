@@ -1,14 +1,14 @@
 //
-//  DemoAppTests.swift
-//  DemoAppTests
+//  FisheyeExampleTests.swift
+//  FisheyeExampleTests
 //
 //  Created by Hanton Yang on 2/6/23.
 //
 
-@testable import DemoApp
+@testable import FisheyeExample
 import XCTest
 
-final class DemoAppTests: XCTestCase {
+final class FisheyeExampleTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

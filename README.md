@@ -90,11 +90,11 @@ fisheyeView.isPlaying  // Check playback state
 
 ## Example App
 
-See the `Example/DemoApp` directory for a complete example application demonstrating how to use the Fisheye library.
+See the `Example/FisheyeExample` directory for a complete example application demonstrating how to use the Fisheye library.
 
 To run the example:
 
-1. Open `Example/DemoApp/DemoApp.xcodeproj` in Xcode
+1. Open `Example/FisheyeExample/FisheyeExample.xcodeproj` in Xcode
 2. Build and run on an iOS simulator or device
 
 ## Architecture
