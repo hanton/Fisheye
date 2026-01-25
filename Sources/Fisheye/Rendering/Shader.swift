@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Shader.swift
 //  Fisheye
 //
 //  Created by Hanton Yang on 2/6/23.
@@ -8,17 +8,25 @@
 import Foundation
 import GLKit
 
-class Shader {
-    var program: GLuint = 0
-    // Vertex Shader
-    var position = GLuint()
-    var texCoord = GLuint()
-    var modelViewProjectionMatrix = GLint()
-    // Fragment Shader
-    var samplerY = GLuint()
-    var samplerUV = GLuint()
+/// Manages the OpenGL ES shader program and its uniform/attribute locations.
+public class Shader {
+    /// The compiled and linked OpenGL program handle.
+    public var program: GLuint = 0
+    // Vertex Shader attributes
+    /// Position attribute location.
+    public var position = GLuint()
+    /// Texture coordinate attribute location.
+    public var texCoord = GLuint()
+    /// Model-view-projection matrix uniform location.
+    public var modelViewProjectionMatrix = GLint()
+    // Fragment Shader uniforms
+    /// Y (luma) texture sampler uniform location.
+    public var samplerY = GLuint()
+    /// UV (chroma) texture sampler uniform location.
+    public var samplerUV = GLuint()
 
-    init() {
+    /// Creates and compiles the shader program.
+    public init() {
         let glProgram = GLProgram()
         program = glProgram.compileShaders(vertexShaderName: "vertexShader", fragmentShaderName: "fragmentShader")
         glUseProgram(program)

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Renderer.swift
 //  Fisheye
 //
 //  Created by Hanton Yang on 2/6/23.
@@ -10,12 +10,13 @@ import Foundation
 import GLKit
 import OpenGLES.ES3
 
-class Renderer {
-    let shader: Shader!
-    let model: Sphere!
-    let fieldOfView: Float = 60.0
+/// Renders 360-degree video content using OpenGL ES 3.
+public class Renderer {
+    let shader: Shader
+    let model: Sphere
+    let fieldOfView: Float
 
-    var context: EAGLContext!
+    var context: EAGLContext
     // VBO
     var vertexBuffer: GLuint = 0
     var texCoordBuffer: GLuint = 0
@@ -29,10 +30,21 @@ class Renderer {
     var chromaTexture: CVOpenGLESTexture?
     var videoTextureCache: CVOpenGLESTextureCache?
 
-    init(context: EAGLContext, shader: Shader, model: Sphere) {
+    // Viewport size for aspect ratio calculation
+    private var viewportSize: CGSize = CGSize(width: 375, height: 667)
+
+    /// Creates a new renderer with the specified context, shader, and model.
+    ///
+    /// - Parameters:
+    ///   - context: The OpenGL ES context to use for rendering.
+    ///   - shader: The compiled shader program.
+    ///   - model: The sphere model for video projection.
+    ///   - fieldOfView: Field of view in degrees. Default is 60.
+    public init(context: EAGLContext, shader: Shader, model: Sphere, fieldOfView: Float = 60.0) {
         self.context = context
         self.shader = shader
         self.model = model
+        self.fieldOfView = fieldOfView
 
         createVBO()
         createVAO()
@@ -43,7 +55,15 @@ class Renderer {
         deleteVAO()
     }
 
-    func render() {
+    /// Sets the viewport size for aspect ratio calculation.
+    ///
+    /// - Parameter size: The new viewport size.
+    public func setViewportSize(_ size: CGSize) {
+        viewportSize = size
+    }
+
+    /// Renders the current frame.
+    public func render() {
         glClearColor(0.0, 0.0, 0.0, 1.0)
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
 
@@ -72,8 +92,13 @@ class Renderer {
         glBindVertexArray(0)
     }
 
-    func updateModelViewProjectionMatrix(_ rotationX: Float, _ rotationY: Float) {
-        let aspect = abs(Float(UIScreen.main.bounds.size.width) / Float(UIScreen.main.bounds.size.height))
+    /// Updates the model-view-projection matrix based on rotation.
+    ///
+    /// - Parameters:
+    ///   - rotationX: Rotation around the X axis in radians.
+    ///   - rotationY: Rotation around the Y axis in radians.
+    public func updateModelViewProjectionMatrix(_ rotationX: Float, _ rotationY: Float) {
+        let aspect = abs(Float(viewportSize.width) / Float(viewportSize.height))
         let nearZ: Float = 0.1
         let farZ: Float = 100.0
         let fieldOfViewInRadians = GLKMathDegreesToRadians(fieldOfView)
@@ -84,7 +109,10 @@ class Renderer {
         modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix)
     }
 
-    func updateTexture(_ pixelBuffer: CVPixelBuffer) {
+    /// Updates the video texture from a pixel buffer.
+    ///
+    /// - Parameter pixelBuffer: The video frame pixel buffer.
+    public func updateTexture(_ pixelBuffer: CVPixelBuffer) {
         if videoTextureCache == nil {
             let result = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, nil, context, nil, &videoTextureCache)
             if result != kCVReturnSuccess {
@@ -155,17 +183,26 @@ class Renderer {
         // Vertex
         glGenBuffers(1, &vertexBuffer)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(model.vertexCount * GLint(3 * MemoryLayout<GLfloat>.size)), model.vertices, GLenum(GL_STATIC_DRAW))
+        let vertexDataSize = model.vertexCount * 3 * MemoryLayout<Float>.size
+        model.vertices.withUnsafeBufferPointer { ptr in
+            glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(vertexDataSize), ptr.baseAddress, GLenum(GL_STATIC_DRAW))
+        }
 
         // Texture Coordinates
         glGenBuffers(1, &texCoordBuffer)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), texCoordBuffer)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(model.vertexCount * GLint(2 * MemoryLayout<GLfloat>.size)), model.texCoords, GLenum(GL_DYNAMIC_DRAW))
+        let texCoordDataSize = model.vertexCount * 2 * MemoryLayout<Float>.size
+        model.texCoords.withUnsafeBufferPointer { ptr in
+            glBufferData(GLenum(GL_ARRAY_BUFFER), GLsizeiptr(texCoordDataSize), ptr.baseAddress, GLenum(GL_DYNAMIC_DRAW))
+        }
 
         // Indices
         glGenBuffers(1, &indexBuffer)
         glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), indexBuffer)
-        glBufferData(GLenum(GL_ELEMENT_ARRAY_BUFFER), GLsizeiptr(model.indexCount * GLint(MemoryLayout<GLushort>.size)), model.indices, GLenum(GL_STATIC_DRAW))
+        let indexDataSize = model.indexCount * MemoryLayout<UInt16>.size
+        model.indices.withUnsafeBufferPointer { ptr in
+            glBufferData(GLenum(GL_ELEMENT_ARRAY_BUFFER), GLsizeiptr(indexDataSize), ptr.baseAddress, GLenum(GL_STATIC_DRAW))
+        }
     }
 
     private func createVAO() {
@@ -174,11 +211,11 @@ class Renderer {
 
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexBuffer)
         glEnableVertexAttribArray(shader.position)
-        glVertexAttribPointer(shader.position, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<GLfloat>.size * 3), nil)
+        glVertexAttribPointer(shader.position, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<Float>.size * 3), nil)
 
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), texCoordBuffer)
         glEnableVertexAttribArray(shader.texCoord)
-        glVertexAttribPointer(shader.texCoord, 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<GLfloat>.size * 2), nil)
+        glVertexAttribPointer(shader.texCoord, 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<Float>.size * 2), nil)
 
         glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), indexBuffer)
 

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GLProgram.swift
 //  Fisheye
 //
 //  Created by Hanton Yang on 2/6/23.
@@ -8,19 +8,38 @@
 import Foundation
 import OpenGLES.ES3
 
-class GLProgram {
+/// Manages OpenGL ES shader program compilation and linking.
+public class GLProgram {
     private var programHandle: GLuint = 0
     private var vertexShader: GLuint = 0
     private var fragmentShader: GLuint = 0
 
-    func compileShaders(vertexShaderName: String, fragmentShaderName: String) -> GLuint {
+    public init() {}
+
+    /// Compiles vertex and fragment shaders and links them into a program.
+    ///
+    /// - Parameters:
+    ///   - vertexShaderName: Name of the vertex shader resource (without .glsl extension).
+    ///   - fragmentShaderName: Name of the fragment shader resource (without .glsl extension).
+    /// - Returns: The OpenGL program handle.
+    public func compileShaders(vertexShaderName: String, fragmentShaderName: String) -> GLuint {
         programHandle = glCreateProgram()
 
-        if !compileShader(&vertexShader, type: GLenum(GL_VERTEX_SHADER), file: Bundle.main.path(forResource: vertexShaderName, ofType: "glsl")!) {
+        guard let vertexPath = Bundle.module.path(forResource: vertexShaderName, ofType: "glsl") else {
+            print("Failed to find vertex shader: \(vertexShaderName)")
+            return 0
+        }
+
+        guard let fragmentPath = Bundle.module.path(forResource: fragmentShaderName, ofType: "glsl") else {
+            print("Failed to find fragment shader: \(fragmentShaderName)")
+            return 0
+        }
+
+        if !compileShader(&vertexShader, type: GLenum(GL_VERTEX_SHADER), file: vertexPath) {
             print("vertex shader failure")
         }
 
-        if !compileShader(&fragmentShader, type: GLenum(GL_FRAGMENT_SHADER), file: Bundle.main.path(forResource: fragmentShaderName, ofType: "glsl")!) {
+        if !compileShader(&fragmentShader, type: GLenum(GL_FRAGMENT_SHADER), file: fragmentPath) {
             print("fragment shader failure")
         }
 
