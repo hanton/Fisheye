@@ -152,11 +152,20 @@ fisheyeView.stop()     // Stop and release resources
 fisheyeView.isPlaying  // Check playback state
 ```
 
-## Example App
+## Example Apps
 
-See the `Example/FisheyeExample` directory for a complete example application demonstrating how to use the Fisheye library.
+The `Example` directory contains two complete example applications:
 
-To run the example:
+### SwiftUI Example
+
+See `Example/FisheyeSwiftUIExample` for a SwiftUI-based example demonstrating `FisheyeSwiftUIView` with playback controls and view modifiers.
+
+1. Open `Example/FisheyeSwiftUIExample/FisheyeSwiftUIExample.xcodeproj` in Xcode
+2. Build and run on an iOS simulator or device
+
+### UIKit Example
+
+See `Example/FisheyeExample` for a UIKit-based example demonstrating `FisheyeView` integration.
 
 1. Open `Example/FisheyeExample/FisheyeExample.xcodeproj` in Xcode
 2. Build and run on an iOS simulator or device
