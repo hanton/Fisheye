@@ -9,6 +9,14 @@
 
 All notable changes to Fisheye will be documented in this file.
 
+## [2.1.0] - 2026-01-30
+
+### Added
+- **SwiftUI support with `FisheyeSwiftUIView`**
+  - Native SwiftUI wrapper for easy integration
+  - Support for video URL binding and playback control
+  - Compatible with SwiftUI lifecycle and state management
+
 ## [2.0.0] - 2026-01-25
 
 ### Changed - BREAKING
