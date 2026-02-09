@@ -2,7 +2,8 @@
 
 A 360-degree panorama video player library for iOS.
 
-![screenshot](./Screenshot/PlayDemo.gif)
+![screenshot](./Example/Screenshot/PlayDemo.gif)
+![screenshot](./Example/Screenshot/HTY360Player.gif)
 
 ## Features
 
