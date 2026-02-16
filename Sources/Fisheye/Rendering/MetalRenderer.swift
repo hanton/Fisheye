@@ -272,8 +272,7 @@ public class MetalRenderer {
     ///   - commandBuffer: The command buffer to encode rendering commands.
     @MainActor
     public func render(in view: MTKView, commandBuffer: MTLCommandBuffer) {
-        guard let renderPassDescriptor = view.currentRenderPassDescriptor,
-              let drawable = view.currentDrawable,
+        guard let drawable = view.currentDrawable,
               let pipelineState = pipelineState,
               let vertexBuffer = vertexBuffer,
               let texCoordBuffer = texCoordBuffer,
@@ -288,22 +287,30 @@ public class MetalRenderer {
             return
         }
 
-        let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
-        renderEncoder?.label = "Fisheye Render Encoder"
+        // Explicit render pass descriptor — skip clearing since 360° video covers all pixels
+        let renderPassDescriptor = MTLRenderPassDescriptor()
+        renderPassDescriptor.colorAttachments[0].texture = drawable.texture
+        renderPassDescriptor.colorAttachments[0].loadAction = .dontCare
+        renderPassDescriptor.colorAttachments[0].storeAction = .store
 
-        renderEncoder?.setRenderPipelineState(pipelineState)
+        guard let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
+            return
+        }
+        renderEncoder.label = "Fisheye Render Encoder"
+
+        renderEncoder.setRenderPipelineState(pipelineState)
 
         // Set vertex buffers
-        renderEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderEncoder?.setVertexBuffer(texCoordBuffer, offset: 0, index: 1)
-        renderEncoder?.setVertexBuffer(uniformBuffer, offset: 0, index: 2)
+        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        renderEncoder.setVertexBuffer(texCoordBuffer, offset: 0, index: 1)
+        renderEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 2)
 
         // Set fragment textures
-        renderEncoder?.setFragmentTexture(yTexture, index: 0)
-        renderEncoder?.setFragmentTexture(uvTexture, index: 1)
+        renderEncoder.setFragmentTexture(yTexture, index: 0)
+        renderEncoder.setFragmentTexture(uvTexture, index: 1)
 
         // Draw
-        renderEncoder?.drawIndexedPrimitives(
+        renderEncoder.drawIndexedPrimitives(
             type: .triangle,
             indexCount: model.indexCount,
             indexType: .uint16,
@@ -311,7 +318,7 @@ public class MetalRenderer {
             indexBufferOffset: 0
         )
 
-        renderEncoder?.endEncoding()
+        renderEncoder.endEncoding()
 
         commandBuffer.present(drawable)
     }

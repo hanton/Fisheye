@@ -9,6 +9,11 @@
 
 All notable changes to Fisheye will be documented in this file.
 
+## [2.1.1] - 2026-02-16
+
+### Improved
+- Optimized Metal render pass by using explicit `.dontCare` load action instead of default `.clear`, eliminating a redundant full-screen clear every frame since 360° video covers all pixels
+
 ## [2.1.0] - 2026-01-30
 
 ### Added
