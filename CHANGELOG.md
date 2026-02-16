@@ -1,10 +1,3 @@
-//
-//  CHANGELOG.md
-//  Fisheye
-//
-//  Created by Hanton Yang on 1/25/26.
-//
-
 # Changelog
 
 All notable changes to Fisheye will be documented in this file.
