@@ -2,7 +2,7 @@
 
 A 360-degree panorama video player library for iOS.
 
-![screenshot](./Example/Screenshot/PlayDemo.gif)
+<video src="./Example/Screenshot/sample.mp4" autoplay loop muted playsinline></video>
 
 ## Features
 
