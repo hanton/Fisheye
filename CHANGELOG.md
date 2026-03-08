@@ -2,6 +2,11 @@
 
 All notable changes to Fisheye will be documented in this file.
 
+## [2.1.2] - 2026-03-07
+
+### Improved
+- Add triple buffering for uniform buffer with semaphore synchronization to prevent CPU-GPU data race
+
 ## [2.1.1] - 2026-02-16
 
 ### Improved

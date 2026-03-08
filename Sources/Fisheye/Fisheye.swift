@@ -12,7 +12,7 @@ import Foundation
 /// Fisheye library version and metadata.
 public enum Fisheye {
     /// The current version of the Fisheye library.
-    public static let version = "2.1.1"
+    public static let version = "2.1.2"
 }
 
 // Re-export public types for convenience
