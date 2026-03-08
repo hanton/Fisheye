@@ -143,6 +143,8 @@ extension FisheyeView: MTKViewDelegate {
             return
         }
 
+        renderer?.prepareFrame()
+
         if let pixelBuffer = videoPlayer?.retrievePixelBuffer() {
             renderer?.updateTexture(pixelBuffer)
         }

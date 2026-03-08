@@ -30,7 +30,10 @@ public class MetalRenderer {
     private var vertexBuffer: MTLBuffer?
     private var texCoordBuffer: MTLBuffer?
     private var indexBuffer: MTLBuffer?
-    private var uniformBuffer: MTLBuffer?
+    private static let maxBuffersInFlight = 3
+    private var uniformBuffers: [MTLBuffer] = []
+    private var currentBufferIndex = 0
+    private let inFlightSemaphore = DispatchSemaphore(value: MetalRenderer.maxBuffersInFlight)
 
     // MARK: - Textures
 
@@ -93,11 +96,16 @@ public class MetalRenderer {
                                         options: .storageModeShared)
         indexBuffer?.label = "Index Buffer"
 
-        // Uniform buffer
+        // Uniform buffers (triple-buffered)
         let uniformBufferSize = MemoryLayout<Uniforms>.size
-        uniformBuffer = device.makeBuffer(length: uniformBufferSize,
-                                          options: .storageModeShared)
-        uniformBuffer?.label = "Uniform Buffer"
+        for i in 0..<MetalRenderer.maxBuffersInFlight {
+            guard let buffer = device.makeBuffer(length: uniformBufferSize,
+                                                  options: .storageModeShared) else {
+                fatalError("Failed to create uniform buffer \(i)")
+            }
+            buffer.label = "Uniform Buffer \(i)"
+            uniformBuffers.append(buffer)
+        }
     }
 
     private func createPipelineState() {
@@ -175,6 +183,14 @@ public class MetalRenderer {
     }
 
     // MARK: - Public Methods
+
+    /// Waits for an available buffer slot and advances the buffer index.
+    ///
+    /// Must be called once per frame before `updateModelViewProjectionMatrix()`.
+    public func prepareFrame() {
+        inFlightSemaphore.wait()
+        currentBufferIndex = (currentBufferIndex + 1) % MetalRenderer.maxBuffersInFlight
+    }
 
     /// Sets the viewport size for aspect ratio calculation.
     ///
@@ -260,7 +276,7 @@ public class MetalRenderer {
         let mvpMatrix = projectionMatrix * modelViewMatrix
 
         // Update uniform buffer
-        guard let uniformBuffer = uniformBuffer else { return }
+        let uniformBuffer = uniformBuffers[currentBufferIndex]
         let uniforms = Uniforms(modelViewProjectionMatrix: mvpMatrix)
         memcpy(uniformBuffer.contents(), [uniforms], MemoryLayout<Uniforms>.size)
     }
@@ -276,16 +292,19 @@ public class MetalRenderer {
               let pipelineState = pipelineState,
               let vertexBuffer = vertexBuffer,
               let texCoordBuffer = texCoordBuffer,
-              let indexBuffer = indexBuffer,
-              let uniformBuffer = uniformBuffer else {
+              let indexBuffer = indexBuffer else {
+            inFlightSemaphore.signal()
             return
         }
 
         guard let yTexture = lumaTexture.flatMap({ CVMetalTextureGetTexture($0) }),
               let uvTexture = chromaTexture.flatMap({ CVMetalTextureGetTexture($0) }) else {
             // Textures not ready yet - this is normal during initialization
+            inFlightSemaphore.signal()
             return
         }
+
+        let uniformBuffer = uniformBuffers[currentBufferIndex]
 
         // Explicit render pass descriptor — skip clearing since 360° video covers all pixels
         let renderPassDescriptor = MTLRenderPassDescriptor()
@@ -294,6 +313,7 @@ public class MetalRenderer {
         renderPassDescriptor.colorAttachments[0].storeAction = .store
 
         guard let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
+            inFlightSemaphore.signal()
             return
         }
         renderEncoder.label = "Fisheye Render Encoder"
@@ -321,6 +341,11 @@ public class MetalRenderer {
         renderEncoder.endEncoding()
 
         commandBuffer.present(drawable)
+
+        let semaphore = inFlightSemaphore
+        commandBuffer.addCompletedHandler { _ in
+            semaphore.signal()
+        }
     }
 
     // MARK: - Private Methods
